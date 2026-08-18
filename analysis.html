@@ -1,0 +1,165 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analysis — Caleb Ulku — Automated SEO Workshop</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Caleb Ulku <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="">Overview</a><a href="analysis.html" class="on">Analysis</a><a href="pages.html" class="">Pages</a><a href="copybank.html" class="">Copy bank</a><a href="transcripts.html" class="">Transcripts</a><a href="videos.html" class="">Video library</a><a href="board.html" class="">Board</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Teardown</div><h1>Analysis</h1>
+<p>What they do, why it works, and what is worth taking.</p></div>
+<section>
+<div class="note"><b>The finding that matters.</b> Everything downstream of this opt-in was
+recovered <i>without opting in</i>. The registration page preloads its own thank-you video, its
+$49 upsell video and its post-purchase video by jsonp, before the visitor has typed anything. The
+survey gate, the price anchor, the bonus stack and the scarcity cap are all documented here from
+a funnel we never entered. Two implications: this is a repeatable capture technique for any
+Wistia-backed funnel, and <b>our own pages should be checked for the same leak</b>.</div>
+
+<h2 class="sec">Worth taking</h2>
+<div class="grid g2">
+<div class="card"><h3>The survey gate</h3><p>&ldquo;Your registration isn't quite complete.&rdquo;
+A sub-one-minute survey framed as the thing that confirms the seat, paid for with a cheat sheet
+delivered by email. It buys a second commitment, four segmentation fields and a reason to email
+&mdash; on the screen where we currently say &ldquo;thanks, see you there.&rdquo; This is the
+single most transferable thing in the swipe, and it points straight at our show-rate
+bottleneck.</p></div>
+<div class="card"><h3>Disclose the upsell before it appears</h3><p>The registration FAQ names the
+$49 VIP in the prospect's own words &mdash; &ldquo;Is this free? What's the catch?&rdquo; &mdash;
+so the OTO lands as a documented option rather than a surprise. Costs one paragraph.</p></div>
+<div class="card"><h3>Anchor against a real recurring price</h3><p>$197/month for the pro
+community, stepped down to $49 once, on a page where the prospect could go and check the $197.
+An anchor that survives verification beats a bigger anchor that doesn't.</p></div>
+<div class="card"><h3>Re-cut the confirmation video for buyers</h3><p>Two versions of the same
+script, one with the pitch and one without, so buyers are not sold something they already own.
+One afternoon of editing.</p></div>
+<div class="card"><h3>Proof by live demonstration</h3><p>&ldquo;Not a pre-recorded case study
+someone cleaned up before you saw it &hellip; either it works or it doesn't.&rdquo; He makes the
+absence of editing the proof. Our equivalent would be building something live on a call rather
+than showing the result of having built it.</p></div>
+<div class="card"><h3>Reframe the category threat as the moat</h3><p>Everyone in his space is
+scared AI is eating search. His one-sentence answer &mdash; &ldquo;AI can't fix a sink&rdquo;
+&mdash; converts the industry's biggest fear into the reason his niche is the safe one. It has
+carried every ad unchanged for seven weeks.</p></div>
+</div>
+
+<h2 class="sec">Read carefully</h2>
+<p><b>The scarcity is dead furniture.</b> &ldquo;234 FREE Spots Left. Closing in 00D : 00H : 00M :
+00S.&rdquo; The count is hardcoded and the timer is frozen at zero &mdash; verified by rendering
+the page twice four seconds apart and comparing digits. The event date is hardcoded eight times,
+and the cold ad was still serving two hours after the class ended. Someone is paying Meta to send
+people to a page whose urgency device visibly does not work. Worth remembering that a broken
+timer is worse than no timer: it tells the visitor nobody is minding the funnel.</p>
+<p><b>The ad numbers are directional.</b> ~9 live of ~160 all-time is a 5.6% survival rate, but
+that is an all-time denominator and it is not age-controlled &mdash; a June ad is inactive
+because it is old, not because it lost. All nine live ads were read in full. Of the inactive set,
+<b>n=12</b> were read; those showed 1&ndash;9 ads bundled per creative. The bundling read is
+directional, not established.</p>
+<p><b>Two claims are checkable and two are not.</b> The $1M+ Upwork earnings and the 3,211 Skool
+members can be verified from source. &ldquo;200+ businesses ranked in the top 3&rdquo; and
+&ldquo;97 clients in six months&rdquo; cannot be checked from outside and carry no disclosed
+methodology. The earnings disclaimer is present and standard.</p>
+<p><b>What we did not get.</b> The class itself, the paid offer and its price, the email sequence,
+and the rendered thank-you / survey / OTO pages. All of it sits behind an opt-in that requires a
+phone number, and we do not fabricate phone numbers &mdash; a made-up number routes a real
+sales call to a real stranger. If Will wants the class and the email machine, the way in is a
+real number he is willing to have texted.</p>
+</section>
+<footer>Captured 6 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/CALEB_ULKU_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>

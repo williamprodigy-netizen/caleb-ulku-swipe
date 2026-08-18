@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transcripts — Caleb Ulku — Automated SEO Workshop</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Caleb Ulku <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="">Overview</a><a href="analysis.html" class="">Analysis</a><a href="pages.html" class="">Pages</a><a href="copybank.html" class="">Copy bank</a><a href="transcripts.html" class="on">Transcripts</a><a href="videos.html" class="">Video library</a><a href="board.html" class="">Board</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Verbatim</div><h1>Transcripts</h1>
+<p>Every word, timestamped. Search filters across all of them at once.</p></div>
+<section><input id="tsearch" class="searchbar" placeholder="Search every transcript…">
+<h2 class="sec">Captured video</h2><details class="tr"><summary>Testimonial 1 — Shelby (registration page)<span class="meta">00:49 · 189 words</span></summary><div class="body"><p><span class="ts">[00:00]</span> about writing and landing clients specifically copying content writing for</p><p><span class="ts">[00:03]</span> SEO before I got into this. And finding out how much I didn&#x27;t know from this</p><p><span class="ts">[00:08]</span> course and what it taught me to cover those gaps enabled me to be so much of a</p><p><span class="ts">[00:13]</span> better professional. There are so many clients that I talked to who will ask me</p><p><span class="ts">[00:16]</span> an offhand question about SEO or content or site hierarchies and I already know</p><p><span class="ts">[00:21]</span> the answer. I know exactly what to say. If I don&#x27;t, I know I have a great network</p><p><span class="ts">[00:25]</span> who can answer it. All I have to say is, you know, it really depends on your</p><p><span class="ts">[00:28]</span> situation. I don&#x27;t want to give you the wrong answer. So I&#x27;m gonna look into that</p><p><span class="ts">[00:31]</span> a little bit and get back to you. And then you go ask your group for support</p><p><span class="ts">[00:35]</span> and you get it. I mean within two days I had my first client who was paying me</p><p><span class="ts">[00:39]</span> well. Couple days after that I had my next one. Couple days after that I had my</p><p><span class="ts">[00:43]</span> next one. It&#x27;s hard to explain how effective it is until you experience.</p></div></details><details class="tr"><summary>Testimonial 2 — Chad (registration page)<span class="meta">00:27 · 82 words</span></summary><div class="body"><p><span class="ts">[00:00]</span> this is one of the best things that I&#x27;ve ever done for my business.</p><p><span class="ts">[00:04]</span> The support is head and shoulders above anything else that I&#x27;ve paid for.</p><p><span class="ts">[00:10]</span> I&#x27;ve done multiple training courses in the past and by far this has been the best value</p><p><span class="ts">[00:16]</span> that I&#x27;ve seen out of any of the trainings that I&#x27;ve done to this point.</p><p><span class="ts">[00:20]</span> One thing about this program is there&#x27;s so many of us that have went through it, start</p><p><span class="ts">[00:26]</span> to finish and continue to use.</p></div></details><details class="tr"><summary>Testimonial 3 — Steven (registration page)<span class="meta">00:22 · 54 words</span></summary><div class="body"><p><span class="ts">[00:00]</span> join, just commit to the process and show up to all the Q&amp;A&#x27;s and just go through the training</p><p><span class="ts">[00:08]</span> exactly how it&#x27;s laid out. It&#x27;s step by step and it works. I know it works because when I was doing</p><p><span class="ts">[00:17]</span> everything step by step, I was getting a ton of interviews and phone calls.</p></div></details><details class="tr"><summary>Thank-you / confirmation VSL — the survey gate + VIP tease<span class="meta">01:56 · 425 words</span></summary><div class="body"><p><span class="ts">[00:00]</span> Congratulations on registering and securing your spot for the live class, but do not close this</p><p><span class="ts">[00:04]</span> page yet because your registration isn&#x27;t quite complete. I want to make sure that the content</p><p><span class="ts">[00:08]</span> I cover in this class is as relevant and useful to you as possible. So right below this video,</p><p><span class="ts">[00:13]</span> I&#x27;ve left a quick survey for you to fill out. It&#x27;ll take you like less than a minute.</p><p><span class="ts">[00:17]</span> This way, I know exactly where you&#x27;re at right now, what kind of clients you&#x27;re working with,</p><p><span class="ts">[00:21]</span> if you&#x27;re a local business, and what your biggest challenges are with local SEO. That way, I can</p><p><span class="ts">[00:26]</span> tailor the live class to the people who are actually going to be in the room. This is not</p><p><span class="ts">[00:30]</span> pre-recorded. It&#x27;s actually a live class. So it&#x27;s only once you&#x27;ve submitted the survey that your</p><p><span class="ts">[00:34]</span> spot will be fully confirmed. And as a thank you for filling it out, I&#x27;m going to send you my 14</p><p><span class="ts">[00:39]</span> day local SEO ranking cheat sheet. This is a step-by-step breakdown of exactly how to get a local</p><p><span class="ts">[00:45]</span> business ranking higher in just 14 days. You&#x27;ll get it straight to your inbox after you submit</p><p><span class="ts">[00:50]</span> the survey. Now, one last thing before you fill it out. After you submit the survey, you&#x27;re going</p><p><span class="ts">[00:55]</span> to have the option to upgrade to the VIP experience. When you join as a VIP, you don&#x27;t just get access</p><p><span class="ts">[01:01]</span> to the live class. You&#x27;re also going to get a second day bonus session, where I&#x27;m going to do</p><p><span class="ts">[01:06]</span> a live deep dive on real websites. I&#x27;ll pull up rank maps, run audits live, and give personalized</p><p><span class="ts">[01:12]</span> recommendations. The VIP session is going to be limited to the first hundred people, so I can</p><p><span class="ts">[01:17]</span> actually go deep on each one. On top of that, VIP members are going to get a seven day free trial of</p><p><span class="ts">[01:23]</span> the AI software I built for my own agency, so you can test it out on a real client before you commit</p><p><span class="ts">[01:28]</span> to anything. It builds entire SEO marketing strategies for local businesses in one click.</p><p><span class="ts">[01:34]</span> I still can&#x27;t believe how insane it is. You&#x27;re also going to get lifetime access to the recording</p><p><span class="ts">[01:39]</span> of the live class and priority Q&amp;A so your questions get answered first. Now, regardless</p><p><span class="ts">[01:45]</span> of whether you want the VIP upgrade or not, just make sure you fill out the survey below to lock</p><p><span class="ts">[01:50]</span> in your spot and get that cheat sheet. Click the button, answer the survey, and I&#x27;ll see you at the</p><p><span class="ts">[01:54]</span> live class. Looking forward to it.</p></div></details><details class="tr"><summary>The $49 VIP OTO pitch<span class="meta">03:52 · 771 words</span></summary><div class="body"><p><span class="ts">[00:00]</span> All right. Hold up. Hold up. Do not close this page just yet. I want to ask you something.</p><p><span class="ts">[00:03]</span> Do you want to walk out of this live class with more than just the strategies,</p><p><span class="ts">[00:07]</span> but with personalized recommendations for your specific clients or business and seven days</p><p><span class="ts">[00:13]</span> of free access to an AI software that ranks local businesses on the first page in one click?</p><p><span class="ts">[00:18]</span> Let me explain what I mean. There are actually two ways to experience this live class. The first way</p><p><span class="ts">[00:24]</span> is what most people are going to do. They&#x27;re going to get the free ticket. They&#x27;re going</p><p><span class="ts">[00:27]</span> to attend the live class and they&#x27;re going to learn the free strategy for ranking local businesses</p><p><span class="ts">[00:32]</span> with AI. And that&#x27;s perfectly fine. You&#x27;re going to walk away with everything you need</p><p><span class="ts">[00:37]</span> to do this yourself. But there&#x27;s a second way to experience it. A completely different level of</p><p><span class="ts">[00:42]</span> access. I&#x27;m calling it the VIP experience. Now I know what you might be thinking. Is this really</p><p><span class="ts">[00:48]</span> worth it? And honestly, it&#x27;s a fair question. For some of you, it might not be, but this is for the</p><p><span class="ts">[00:53]</span> small group of SEO agency owners and local business owners who want to take what you learn in the live</p><p><span class="ts">[00:59]</span> class and actually implement it with my direct help. So let me break down what VIP members get.</p><p><span class="ts">[01:05]</span> First, you&#x27;re going to get a second day bonus session with me. This is not a replay of the live</p><p><span class="ts">[01:10]</span> class. This is a completely separate session where I&#x27;m doing live deep dives on real websites. I&#x27;ll</p><p><span class="ts">[01:18]</span> pull up your rank map, run a GBP audit live, and give you personalized recommendations that you can</p><p><span class="ts">[01:23]</span> act on immediately. Real data, real strategy specific to your business. This session is limited</p><p><span class="ts">[01:30]</span> to the first 100 VIP members. Once those spots are filled, the VIP ticket will become unavailable</p><p><span class="ts">[01:36]</span> entirely. And second, you get a seven day free trial of AI software I built for my own agency.</p><p><span class="ts">[01:43]</span> If you&#x27;ve ever spent hours researching keywords, writing content, building out schema,</p><p><span class="ts">[01:47]</span> handling images, adding external links, and then publishing to WordPress all for a single page,</p><p><span class="ts">[01:52]</span> this tool does all of that for you in one click. You import your client&#x27;s information and it builds</p><p><span class="ts">[01:57]</span> the entire SEO strategy for you. Supporting content, geographical targeting, GBP optimization,</p><p><span class="ts">[02:03]</span> everything. And the content it produces often scores below 20% on AI detection without a single</p><p><span class="ts">[02:10]</span> human edit. That&#x27;s slower than what most human writers do. And I&#x27;ll give you full access for</p><p><span class="ts">[02:15]</span> seven days to use it on a real client. If it doesn&#x27;t deliver, then cancel no drama. Third,</p><p><span class="ts">[02:20]</span> you&#x27;re going to get lifetime access to the full recording of the live class. So you can go back</p><p><span class="ts">[02:25]</span> and rewatch the strategies and the Q&amp;A whenever you need to. And finally, VIP members get priority Q&amp;A</p><p><span class="ts">[02:31]</span> at the end of the live class. Your questions go to the front of the line. So you can be sure</p><p><span class="ts">[02:35]</span> you&#x27;ll get your specific situation addressed. Now, to get this kind of access to me normally,</p><p><span class="ts">[02:39]</span> you&#x27;d have to be inside my pro community. And that runs $197 a month. But today,</p><p><span class="ts">[02:44]</span> you&#x27;re not paying $197. You&#x27;re not even paying $100. Right here on this page, you can get the</p><p><span class="ts">[02:50]</span> full VIP experience for just $49. And honestly, if the strategies from the live class help you</p><p><span class="ts">[02:55]</span> improve rankings for even one client, the value of that alone covers this many times only. The</p><p><span class="ts">[03:00]</span> value of that alone covers this many times over. But I generally don&#x27;t mind if you decide VIP isn&#x27;t</p><p><span class="ts">[03:06]</span> for you. The free ticket alone gives you access to the full live class, the full strategy breakdown,</p><p><span class="ts">[03:11]</span> and everything you need to start improving your local SEO. That&#x27;s more than enough to get started.</p><p><span class="ts">[03:16]</span> But if you&#x27;re someone who wants personalized recommendations on your specific clients,</p><p><span class="ts">[03:20]</span> if you want to test the software before committing to anything, and if you want to make sure your</p><p><span class="ts">[03:24]</span> questions get answered first, then VIP is the way to go. So here&#x27;s what happens next.</p><p><span class="ts">[03:28]</span> If you want the VIP experience, click the button below to upgrade your ticket. You&#x27;ll get instant</p><p><span class="ts">[03:33]</span> access to everything I just mentioned, starting with the bonus session the day after the live</p><p><span class="ts">[03:38]</span> class. If you&#x27;d rather stick with the free ticket, that&#x27;s completely fine. Just click the other button</p><p><span class="ts">[03:43]</span> and you&#x27;re all set for the live class. Either way, I&#x27;m looking forward to showing you what&#x27;s possible</p><p><span class="ts">[03:47]</span> with AI and local SEO. Make your choice below and I&#x27;ll see you at the live class.</p></div></details><details class="tr"><summary>VIP confirmation VSL — post-purchase re-cut<span class="meta">01:00 · 234 words</span></summary><div class="body"><p><span class="ts">[00:00]</span> Congratulations on registering and securing your spot for the live class, but do not close</p><p><span class="ts">[00:04]</span> this page yet because your registration isn&#x27;t quite complete. I want to make sure that the</p><p><span class="ts">[00:08]</span> content I cover in this class is as relevant and useful to you as possible. So right below this</p><p><span class="ts">[00:13]</span> video I&#x27;ve left a quick survey for you to fill out. It&#x27;ll take you like less than a minute.</p><p><span class="ts">[00:17]</span> This way I know exactly where you&#x27;re at right now, what kind of clients you&#x27;re working with,</p><p><span class="ts">[00:21]</span> if you&#x27;re a local business, and what your biggest challenges are with local SEO. That way I can</p><p><span class="ts">[00:26]</span> tailor the live class to the people who are actually going to be in the room. This is not</p><p><span class="ts">[00:30]</span> pre-recorded, it&#x27;s actually a live class. So it&#x27;s only once you&#x27;ve submitted the survey that your</p><p><span class="ts">[00:34]</span> spot will be fully confirmed. And as a thank you for filling it out, I&#x27;m going to send you my 14</p><p><span class="ts">[00:39]</span> day local SEO ranking cheat sheet. This is a step-by-step breakdown of exactly how to get a local</p><p><span class="ts">[00:45]</span> business ranking higher in just 14 days. You&#x27;ll get it straight to your inbox after you submit</p><p><span class="ts">[00:50]</span> the survey. Just make sure you fill out the survey below to lock in your spot and get that cheat sheet.</p><p><span class="ts">[00:56]</span> click the button, answer the survey, and I&#x27;ll see you at the live class. Looking forward to it.</p></div></details></section>
+<footer>Captured 6 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/CALEB_ULKU_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>
